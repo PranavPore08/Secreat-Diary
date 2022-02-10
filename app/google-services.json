@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "99317687118",
+    "project_id": "userpass-f329d",
+    "storage_bucket": "userpass-f329d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99317687118:android:2b55b38616f2391c2d741f",
+        "android_client_info": {
+          "package_name": "com.example.userpass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99317687118-gs5ujuqluuisujvl0fcnrc45ilunn43a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhEsP7x2inhb_PAcD8t6TNWumbTwCPLj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99317687118-gs5ujuqluuisujvl0fcnrc45ilunn43a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
