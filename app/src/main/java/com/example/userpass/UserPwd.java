@@ -72,9 +72,15 @@ public class UserPwd extends AppCompatActivity {
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String one;
+                if(snapshot.child("password").exists()){
+                    one=snapshot.child("password").getValue(String.class);
+                    one=Decode.decode(one);
 
-                String one=snapshot.child("password").getValue(String.class);
-                one=Decode.decode(one);
+                }
+                else{
+                    one="";
+                }
                 txt_password.setText(one);
                 txt_username.setText(snapshot.child("username1").getValue(String.class));
                 txt_other.setText(snapshot.child("other").getValue(String.class));
@@ -105,26 +111,6 @@ public class UserPwd extends AppCompatActivity {
             }
         });
     }
-
-    private String decrypt(String outputString) throws Exception{
-        Cipher c=Cipher.getInstance(AES);
-        c.init(Cipher.DECRYPT_MODE,generateKey(outputString));
-        byte[] decodedValue=Base64.decode(outputString,Base64.DEFAULT);
-        byte[] decValue=c.doFinal(decodedValue);
-        String decryptedValue=new String(decValue);
-        return decryptedValue;
-    }
-
-    private String encrypt(String password) throws Exception{
-        SecretKeySpec key=generateKey(password);
-        Cipher c=Cipher.getInstance(AES);
-        c.init(Cipher.ENCRYPT_MODE,key);
-        byte[] encVal=c.doFinal(password.getBytes());
-        String encryptedValue= Base64.encodeToString(encVal,Base64.DEFAULT);
-        return encryptedValue;
-
-    }
-
     private SecretKeySpec generateKey(String password) throws Exception{
         final MessageDigest digest=MessageDigest.getInstance("SHA-256");
         byte[] bytes=password.getBytes("UTF-8");
